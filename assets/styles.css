@@ -1,0 +1,593 @@
+/* ════════════════════════════════════════════════════════════════
+   HEADS DESIGN — Reveal.js theme
+   Paleta extraída de theme1.xml da apresentação institucional HEADS.
+   Padrão de layout segue o do fmup-digital-health-and-ai-in-pain-medicine
+   (height: 720px fixo, flex !important, padding simétrico).
+   Spec: ../DESIGN.md
+   ════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  --heads-ink: #3A4652;
+  --heads-lavender: #7C89B8;
+  --heads-bronze: #A57E38;
+  --heads-text-muted: #6C7480;
+  --heads-line-soft: #D1D5DB;
+  --heads-bg-soft: #E7E6E6;
+  --heads-bg: #FFFFFF;
+  --heads-alert: #C25450;
+  --heads-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset reveal defaults ──────────────────────────────────────── */
+.reveal {
+  font-family: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  font-size: 19pt;
+  font-weight: 400;
+  color: var(--heads-ink);
+  background: var(--heads-bg);
+}
+
+.reveal .slides { text-align: left; }
+
+.reveal h1, .reveal h2, .reveal h3 {
+  color: var(--heads-ink);
+  font-family: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+  margin: 0 0 0.4em 0;
+}
+
+.reveal h1 { font-size: 48pt; }
+.reveal h2 { font-size: 32pt; }
+.reveal h3 { font-size: 22pt; font-weight: 500; }
+
+.reveal p, .reveal li {
+  line-height: 1.45;
+  font-size: 19pt;
+}
+
+.reveal ul, .reveal ol { margin-left: 1em; }
+.reveal li { margin: 0.35em 0; }
+
+.reveal strong { font-weight: 700; }
+.reveal em { font-style: italic; }
+
+.reveal code, .reveal pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  color: var(--heads-ink);
+  background: rgba(0,0,0,0.04);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+.reveal a {
+  color: var(--heads-lavender);
+  text-decoration: none;
+  border-bottom: 1px solid var(--heads-lavender);
+}
+
+/* Reveal section — height fixo (720px). NÃO pôr padding aqui:
+   isso sobrescreveria os paddings dos layouts (specificity .reveal .slides > section
+   é mais específica que .heads-content). Cada layout abaixo gere o seu padding. */
+.reveal .slides > section {
+  background: var(--heads-bg);
+  width: 100%;
+  height: 720px;
+  min-height: 720px;
+  box-sizing: border-box;
+}
+
+/* ── DARK variant — aplicada à <section> ─────────────────────────── */
+.reveal .slides > section.heads-dark {
+  background: var(--heads-ink) !important;
+  color: #FFFFFF;
+}
+
+.heads-dark h1, .heads-dark h2, .heads-dark h3 { color: #FFFFFF; }
+
+.heads-dark .reveal-label,
+.heads-dark .heads-label { color: var(--heads-lavender); }
+
+.heads-dark .heads-text-muted,
+.heads-dark .heads-meta { color: rgba(255,255,255,0.7); }
+
+.heads-dark code {
+  background: rgba(255,255,255,0.12);
+  color: #FFFFFF;
+}
+
+/* ── Helpers ─────────────────────────────────────────────────────── */
+
+.heads-label {
+  display: block;
+  color: var(--heads-lavender);
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 0.5em 0;
+}
+
+.heads-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin-top: 10px;
+}
+
+.heads-meta {
+  color: var(--heads-text-muted);
+  font-size: 14pt;
+}
+
+.heads-alert { color: var(--heads-alert); font-weight: 600; }
+
+/* ════════════════════════════════════════════════════════════════
+   COVER (hero / title)
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-cover {
+  background: var(--heads-bg) !important;
+  display: flex !important;
+  flex-direction: column;
+  height: 720px;
+}
+
+.heads-cover .cover-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 9% 8% 5% 8%;
+  position: relative;
+}
+
+.heads-cover .cover-logo {
+  height: 56px;
+  width: auto;
+  margin: 0 auto 8% auto;
+}
+
+.heads-cover.heads-dark .cover-logo {
+  /* Substituído via HTML: usar logo-heads-light.png para fundo escuro.
+     Esta regra fica aqui como fallback se alguém esquece de trocar. */
+}
+
+.heads-cover h1 {
+  font-size: 48pt;
+  font-weight: 700;
+  margin: 0 0 0.3em 0;
+  max-width: 90%;
+  line-height: 1.15;
+}
+
+.heads-cover .accent-line {
+  width: 110px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin: 0.1em auto 0.6em auto;
+}
+
+.heads-cover .subtitle {
+  font-size: 21pt;
+  font-weight: 400;
+  margin: 0;
+  max-width: 80%;
+  color: inherit;
+}
+
+.heads-cover.heads-dark .subtitle { color: rgba(255,255,255,0.85); }
+
+.heads-cover .meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  width: 78%;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.heads-cover .meta-block { text-align: left; }
+.heads-cover .meta-block.right { text-align: right; }
+
+.heads-cover .meta-block::before {
+  content: '';
+  display: block;
+  width: 140px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin-bottom: 10px;
+}
+
+.heads-cover .meta-block.right::before { margin-left: auto; }
+
+.heads-cover .meta-block .author {
+  font-size: 13pt;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.heads-cover .meta-block .author-email {
+  font-size: 12pt;
+  font-weight: 400;
+  color: var(--heads-text-muted);
+}
+
+.heads-cover .meta-block .date {
+  font-size: 13pt;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.heads-cover .meta-block .institution {
+  font-size: 12pt;
+  font-weight: 400;
+  color: var(--heads-text-muted);
+}
+
+.heads-cover.heads-dark .meta-block .author-email,
+.heads-cover.heads-dark .meta-block .institution {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SECTION DIVIDER — vertically centered
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-section {
+  background: var(--heads-bg-soft) !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 9%;
+  height: 720px;
+}
+
+.heads-section.heads-dark { background: var(--heads-ink) !important; }
+
+.heads-section .label {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--heads-lavender);
+  margin: 0 0 0.4em 0;
+}
+
+.heads-section .label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin-top: 10px;
+}
+
+.heads-section h2 {
+  font-size: 44pt;
+  margin: 0;
+  max-width: 80%;
+  line-height: 1.1;
+}
+
+.heads-section .subtitle {
+  font-size: 19pt;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0.7em 0 0 0;
+  max-width: 75%;
+  color: var(--heads-text-muted);
+}
+
+.heads-section.heads-dark .subtitle { color: rgba(255,255,255,0.7); }
+
+/* ════════════════════════════════════════════════════════════════
+   CONTENT SLIDE
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-content {
+  background: var(--heads-bg) !important;
+  display: flex !important;
+  flex-direction: column;
+  height: 720px;
+  padding: 8% 9% 7% 9%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.heads-content.heads-soft { background: var(--heads-bg-soft) !important; }
+.heads-content.heads-dark { background: var(--heads-ink) !important; }
+
+.heads-content h2 {
+  font-size: 30pt;
+  margin: 0 0 0.3em 0;
+}
+
+.heads-content .title-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--heads-lavender);
+  margin: 0 0 1.2em 0;
+}
+
+.heads-content .body {
+  flex: 1;
+  max-width: 100%;
+  min-height: 0;
+}
+
+.heads-content .body--narrow { max-width: 78%; }
+
+.heads-content .body p,
+.heads-content .body li { font-size: 19pt; }
+
+/* Two-column inside content */
+.heads-content .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.heads-content .two-col h3 {
+  font-size: 22pt;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+/* Slide number */
+.heads-slide-num {
+  position: absolute;
+  bottom: 20px;
+  right: 28px;
+  font-size: 11pt;
+  color: var(--heads-text-muted);
+}
+
+.heads-content.heads-dark .heads-slide-num { color: rgba(255,255,255,0.5); }
+
+/* ════════════════════════════════════════════════════════════════
+   CARDS GRID
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-cards {
+  display: grid;
+  gap: 20px;
+}
+
+.heads-cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.heads-cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.heads-cards.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.heads-card {
+  background: var(--heads-bg-soft);
+  padding: 22px 24px;
+  border-radius: 4px;
+}
+
+.heads-card h3 {
+  font-size: 19pt;
+  font-weight: 700;
+  margin: 0 0 0.45em 0;
+}
+
+.heads-card p {
+  font-size: 16pt;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Cards over dark bg */
+.heads-content.heads-dark .heads-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #FFFFFF;
+}
+
+.heads-content.heads-dark .heads-card h3,
+.heads-content.heads-dark .heads-card p { color: #FFFFFF; }
+
+/* Cards over soft (cinza claro) bg — usar branco para distinguir */
+.heads-content.heads-soft .heads-card {
+  background: #FFFFFF;
+  border: 1px solid var(--heads-line-soft);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   IMAGE-SIDE
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-image-side {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.heads-image-side.reverse { grid-template-columns: 1fr 2fr; }
+.heads-image-side.reverse .image-frame { order: 2; }
+.heads-image-side.reverse .side-text { order: 1; }
+
+.heads-image-side .image-frame {
+  background: var(--heads-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 4px;
+  padding: 24px;
+  min-height: 320px;
+}
+
+.heads-content.heads-dark .heads-image-side .image-frame { background: rgba(255,255,255,0.06); }
+
+.heads-image-side .image-frame img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CLAIM (provocação) — vertically centered
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-claim {
+  background: var(--heads-bg) !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 9%;
+  height: 720px;
+}
+
+.heads-claim.heads-dark { background: var(--heads-ink) !important; }
+
+.heads-claim .label {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--heads-lavender);
+  margin: 0 0 0.6em 0;
+}
+
+.heads-claim .claim-text {
+  font-style: italic;
+  font-size: 32pt;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 84%;
+  margin: 0;
+}
+
+.heads-claim .claim-rule {
+  width: 60px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin: 1.4em 0 1em 0;
+}
+
+.heads-claim .claim-prompt {
+  font-size: 19pt;
+  font-weight: 500;
+  margin: 0;
+  color: var(--heads-text-muted);
+}
+
+.heads-claim.heads-dark .claim-prompt { color: rgba(255,255,255,0.75); }
+
+/* ════════════════════════════════════════════════════════════════
+   QUOTE — vertically centered
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-quote {
+  background: var(--heads-bg-soft) !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12%;
+  height: 720px;
+}
+
+.heads-quote.heads-dark { background: var(--heads-ink) !important; }
+
+.heads-quote .quote-block {
+  border-left: 2px solid var(--heads-lavender);
+  padding-left: 28px;
+  max-width: 80%;
+}
+
+.heads-quote .quote-text {
+  font-style: italic;
+  font-size: 28pt;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 1em 0;
+}
+
+.heads-quote .quote-attr {
+  font-size: 15pt;
+  color: var(--heads-text-muted);
+}
+
+.heads-quote.heads-dark .quote-attr { color: rgba(255,255,255,0.7); }
+
+/* ════════════════════════════════════════════════════════════════
+   CLOSING — vertically + horizontally centered
+   ════════════════════════════════════════════════════════════════ */
+
+.heads-closing {
+  background: var(--heads-bg-soft) !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 720px;
+  text-align: center;
+  padding: 0;
+}
+
+.heads-closing.heads-dark { background: var(--heads-ink) !important; }
+
+.heads-closing .closing-logo {
+  height: 64px;
+  width: auto;
+  margin-bottom: 36px;
+}
+
+.heads-closing h2 {
+  font-size: 52pt;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+}
+
+.heads-closing .closing-rule {
+  width: 80px;
+  height: 1.5px;
+  background: var(--heads-lavender);
+  margin: 0 auto 24px auto;
+}
+
+.heads-closing .closing-contact {
+  font-size: 20pt;
+  font-weight: 400;
+  margin: 0;
+}
+
+.heads-closing.heads-dark .closing-contact { color: rgba(255,255,255,0.85); }
+
+/* ════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ════════════════════════════════════════════════════════════════ */
+
+.reveal section.present .heads-fade-up {
+  animation: headsFadeUp 600ms var(--heads-ease) both;
+}
+
+.reveal section.present .heads-fade-up.delay-1 { animation-delay: 100ms; }
+.reveal section.present .heads-fade-up.delay-2 { animation-delay: 250ms; }
+.reveal section.present .heads-fade-up.delay-3 { animation-delay: 400ms; }
+.reveal section.present .heads-fade-up.delay-4 { animation-delay: 550ms; }
+
+@keyframes headsFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal section.present *,
+  .reveal section.present *::before {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
