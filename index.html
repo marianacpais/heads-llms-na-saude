@@ -23,21 +23,25 @@
     .heads-screenshot img { max-width: 100%; max-height: 416px; object-fit: contain; }
     .heads-content.heads-dark .heads-screenshot { background: rgba(255,255,255,0.06); }
 
-    /* ── Progress strip identifier (5 informative pills) ─────── */
+    /* ── Source attribution line under figures ─────────────── */
+    .heads-source-line { font-size: 11pt; color: var(--heads-text-muted); font-style: italic; text-align: center; margin-top: 8px; }
+    .heads-source-line a { color: inherit; text-decoration: underline dotted; }
+
+    /* ── Progress strip identifier ──────────────────────────── */
     .heads-progress-strip { position: absolute; top: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 10; pointer-events: none; padding: 0 24px; }
     .heads-progress-strip .pill { font-size: 9pt; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 10px; background: var(--heads-bg-soft); color: var(--heads-text-muted); }
     .heads-progress-strip .pill.active { background: var(--heads-lavender); color: #FFFFFF; }
     .heads-dark .heads-progress-strip .pill { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
     .heads-dark .heads-progress-strip .pill.active { background: var(--heads-lavender); color: #FFFFFF; }
 
-    /* ── Agenda cards (5-card grid) ─────────────────────────── */
+    /* ── Agenda cards ───────────────────────────────────────── */
     .heads-agenda { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 0.4em; }
     .heads-agenda .agenda-card { background: var(--heads-bg-soft); padding: 16px 14px; border-radius: 4px; display: flex; flex-direction: column; gap: 6px; }
     .heads-agenda .agenda-card .num { font-size: 10pt; font-weight: 600; color: var(--heads-lavender); letter-spacing: 0.1em; text-transform: uppercase; }
     .heads-agenda .agenda-card .ttl { font-size: 15pt; font-weight: 700; line-height: 1.2; color: var(--heads-ink); }
     .heads-agenda .agenda-card .sub { font-size: 11pt; color: var(--heads-text-muted); line-height: 1.3; }
 
-    /* ── Diverging arrows visual (dialectical pair) ─────────── */
+    /* ── Diverging arrows ──────────────────────────────────── */
     .heads-diverge { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-top: 0.4em; }
     .heads-diverge .arc { padding: 20px 22px; border-radius: 4px; }
     .heads-diverge .arc-up { background: rgba(124,137,184,0.18); }
@@ -49,51 +53,108 @@
     .heads-diverge .arc .what { font-size: 18pt; font-weight: 700; margin: 0 0 6px 0; }
     .heads-diverge .arc .arrow { font-size: 24pt; line-height: 1; margin: 4px 0 6px 0; }
 
-    /* ── Verbatim quote box (uniform style) ─────────────────── */
+    /* ── Verbatim quote box ─────────────────────────────────── */
     .heads-verbatim { font-style: italic; padding: 16px 22px; background: var(--heads-bg-soft); border-left: 3px solid var(--heads-lavender); border-radius: 0 3px 3px 0; font-size: 16pt; }
     .heads-content.heads-dark .heads-verbatim { background: rgba(255,255,255,0.08); }
 
-    /* ── Specialty mini-cards (Same pattern slide) ──────────── */
-    .heads-specialty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 0.4em; }
-    .heads-specialty-grid .spc { background: var(--heads-bg-soft); padding: 14px 18px; border-radius: 4px; border-left: 3px solid var(--heads-lavender); }
-    .heads-specialty-grid .spc .spc-name { font-size: 14pt; font-weight: 700; color: var(--heads-ink); margin: 0 0 4px 0; }
-    .heads-specialty-grid .spc .spc-vs { font-size: 13pt; color: var(--heads-text-muted); line-height: 1.35; }
+    /* ── Specialty cards w/ icons ───────────────────────────── */
+    .heads-specialty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 0.4em; }
+    .heads-specialty-grid .spc { background: var(--heads-bg-soft); padding: 14px 18px; border-radius: 4px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: center; }
+    .heads-specialty-grid .spc .ic { width: 36px; height: 36px; border-radius: 50%; background: var(--heads-lavender); color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+    .heads-specialty-grid .spc .ic svg { width: 20px; height: 20px; stroke: #FFFFFF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .heads-specialty-grid .spc .meta .spc-name { font-size: 13pt; font-weight: 700; color: var(--heads-ink); margin: 0 0 2px 0; }
+    .heads-specialty-grid .spc .meta .spc-vs { font-size: 12pt; color: var(--heads-text-muted); line-height: 1.3; }
 
-    /* ── SSRIs concept slide ────────────────────────────────── */
+    /* ── SSRIs concept box ──────────────────────────────────── */
     .heads-concept-box { background: var(--heads-bg-soft); padding: 28px 32px; border-radius: 4px; margin-top: 0.6em; }
     .heads-concept-box .concept-q { font-size: 20pt; font-style: italic; margin: 0 0 14px 0; }
     .heads-concept-box .concept-a { font-size: 22pt; font-weight: 700; margin: 0; color: var(--heads-lavender); }
 
-    /* ── Two-papers comparison visual ───────────────────────── */
+    /* ── Two-papers pair ────────────────────────────────────── */
     .heads-papers-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 0.6em; }
     .heads-papers-pair .pp { background: var(--heads-bg-soft); padding: 20px 22px; border-radius: 4px; }
     .heads-papers-pair .pp .journal { font-size: 11pt; font-weight: 700; color: var(--heads-lavender); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 6px 0; }
     .heads-papers-pair .pp .qt { font-size: 16pt; font-weight: 700; margin: 0 0 8px 0; line-height: 1.3; }
     .heads-papers-pair .pp .sm { font-size: 13pt; color: var(--heads-text-muted); }
 
-    /* ── LLM regression-to-cal visual ───────────────────────── */
+    /* ── Anchor viz ─────────────────────────────────────────── */
     .heads-anchor-viz { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 0.4em; padding: 20px; background: var(--heads-bg-soft); border-radius: 4px; }
     .heads-anchor-viz .ax { text-align: center; }
     .heads-anchor-viz .ax .lbl { font-size: 12pt; color: var(--heads-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
     .heads-anchor-viz .ax .val { font-size: 22pt; font-weight: 700; color: var(--heads-ink); }
     .heads-anchor-viz .arrow { font-size: 28pt; color: var(--heads-bronze); }
 
-    /* ── Mini bar chart (Reis) ──────────────────────────────── */
+    /* ── Animated bar chart (Reis) ──────────────────────────── */
     .heads-barchart { display: flex; flex-direction: column; gap: 14px; max-width: 82%; margin: 0.5em auto 0 auto; }
     .heads-barchart .bar-row { display: grid; grid-template-columns: 160px 1fr 80px; align-items: center; gap: 14px; }
     .heads-barchart .bar-label { font-size: 14pt; color: var(--heads-ink); }
-    .heads-barchart .bar-track { background: var(--heads-bg-soft); height: 22px; border-radius: 3px; position: relative; }
-    .heads-barchart .bar-fill { background: var(--heads-lavender); height: 100%; border-radius: 3px; }
+    .heads-barchart .bar-track { background: var(--heads-bg-soft); height: 22px; border-radius: 3px; position: relative; overflow: hidden; }
+    .heads-barchart .bar-fill { background: var(--heads-lavender); height: 100%; border-radius: 3px; width: 0; transition: width 1.4s cubic-bezier(0.22, 0.85, 0.32, 1); }
     .heads-barchart .bar-fill.delta { background: var(--heads-bronze); }
-    .heads-barchart .bar-value { font-size: 14pt; font-weight: 700; }
+    .heads-barchart.animate-in .bar-fill { width: var(--target-width); }
+    .heads-barchart .bar-value { font-size: 14pt; font-weight: 700; opacity: 0; transition: opacity 0.6s ease 1.2s; }
+    .heads-barchart.animate-in .bar-value { opacity: 1; }
 
-    /* ── κ table (Nyrhi) ───────────────────────────────────── */
+    /* ── κ table (Nyrhi) ────────────────────────────────────── */
     .heads-kappa { width: 100%; border-collapse: collapse; margin-top: 0.5em; }
     .heads-kappa th, .heads-kappa td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--heads-line-soft); font-size: 14pt; }
     .heads-kappa th { font-weight: 700; color: var(--heads-text-muted); text-transform: uppercase; font-size: 10pt; letter-spacing: 0.08em; }
     .heads-kappa td.num { font-weight: 700; font-family: 'JetBrains Mono', monospace; }
     .heads-kappa td.poor { color: var(--heads-alert); }
     .heads-kappa td.fair { color: var(--heads-bronze); }
+
+    /* ── Transatlantic split (flag panels) ─────────────────── */
+    .heads-flag-split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 0.4em; }
+    .heads-flag-split .pan { background: var(--heads-bg-soft); border-radius: 4px; padding: 22px 24px 18px 24px; position: relative; overflow: hidden; }
+    .heads-flag-split .pan .flag-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .heads-flag-split .pan .flag { width: 36px; height: 24px; border-radius: 2px; flex-shrink: 0; }
+    .heads-flag-split .pan .pan-h { font-size: 13pt; font-weight: 700; margin: 0; color: var(--heads-ink); }
+    .heads-flag-split .pan .pan-h .when { color: var(--heads-text-muted); font-weight: 500; }
+    .heads-flag-split .pan .lead { font-size: 15pt; margin: 0 0 8px 0; line-height: 1.35; }
+    .heads-flag-split .pan .foot { font-size: 12pt; color: var(--heads-text-muted); line-height: 1.4; margin: 0; }
+
+    /* Big EU flag — circle of 12 stars on blue */
+    .flag-eu { background: #003399; position: relative; }
+    .flag-eu::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle 1.4px at 18px 4.5px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 25px 7px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 29px 12px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 25px 17px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 18px 19.5px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 11px 17px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 7px 12px, #FFCC00 100%, transparent 100%), radial-gradient(circle 1.4px at 11px 7px, #FFCC00 100%, transparent 100%); }
+
+    /* US flag — stripes + star canton */
+    .flag-us { background: linear-gradient(to bottom, #B22234 0, #B22234 1.85px, #FFFFFF 1.85px, #FFFFFF 3.7px, #B22234 3.7px, #B22234 5.55px, #FFFFFF 5.55px, #FFFFFF 7.4px, #B22234 7.4px, #B22234 9.25px, #FFFFFF 9.25px, #FFFFFF 11.1px, #B22234 11.1px, #B22234 12.95px, #FFFFFF 12.95px, #FFFFFF 14.8px, #B22234 14.8px, #B22234 16.65px, #FFFFFF 16.65px, #FFFFFF 18.5px, #B22234 18.5px, #B22234 20.35px, #FFFFFF 20.35px, #FFFFFF 22.2px, #B22234 22.2px, #B22234 24px); position: relative; }
+    .flag-us::before { content: ""; position: absolute; top: 0; left: 0; width: 17px; height: 13.5px; background: #3C3B6E; }
+
+    /* ── OpenEvidence info panel ───────────────────────────── */
+    .heads-info-panel { background: var(--heads-bg-soft); border-radius: 4px; padding: 22px 26px; border-left: 4px solid var(--heads-lavender); }
+    .heads-info-panel p { font-size: 16pt; line-height: 1.45; margin: 0 0 10px 0; }
+    .heads-info-panel p:last-child { margin-bottom: 0; }
+    .heads-info-panel .hint { font-size: 13pt; color: var(--heads-text-muted); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--heads-line-soft); }
+
+    /* ── Bean-Mahdi locator (no screenshot) ────────────────── */
+    .heads-locator { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 0.4em; }
+    .heads-locator .loc-row { display: grid; grid-template-columns: 220px 1fr; gap: 18px; align-items: center; background: var(--heads-bg-soft); padding: 12px 18px; border-radius: 4px; }
+    .heads-locator .loc-row .loc-stage { font-size: 12pt; font-weight: 700; color: var(--heads-lavender); text-transform: uppercase; letter-spacing: 0.08em; }
+    .heads-locator .loc-row .loc-finding { font-size: 14pt; }
+
+    /* ── Topaz audit metrics (no screenshot) ───────────────── */
+    .heads-audit-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 0.4em; }
+    .heads-audit-row .au { background: var(--heads-bg-soft); padding: 18px 20px; border-radius: 4px; text-align: center; }
+    .heads-audit-row .au .year { font-size: 11pt; font-weight: 600; color: var(--heads-text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .heads-audit-row .au .ratio { font-size: 26pt; font-weight: 700; color: var(--heads-ink); margin: 6px 0; }
+    .heads-audit-row .au .ratio .one { color: var(--heads-text-muted); font-weight: 500; }
+    .heads-audit-row .au .lab { font-size: 12pt; color: var(--heads-text-muted); }
+    .heads-audit-row .au.latest { background: rgba(165,126,56,0.16); border: 1px solid rgba(165,126,56,0.35); }
+    .heads-audit-foot { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 14px; }
+    .heads-audit-foot .af { background: var(--heads-bg-soft); padding: 12px 16px; border-radius: 4px; }
+    .heads-audit-foot .af .v { font-size: 18pt; font-weight: 700; color: var(--heads-ink); margin: 0; }
+    .heads-audit-foot .af .l { font-size: 11pt; color: var(--heads-text-muted); line-height: 1.3; }
+
+    /* ── Q1 2026 compact 2x4 grid ──────────────────────────── */
+    .heads-launch-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto; gap: 10px; margin-top: 0.4em; }
+    .heads-launch-grid .lg { background: var(--heads-bg-soft); border-radius: 4px; padding: 10px 12px; border-left: 3px solid var(--heads-lavender); }
+    .heads-launch-grid .lg .co { font-size: 11pt; font-weight: 700; color: var(--heads-ink); margin: 0 0 2px 0; }
+    .heads-launch-grid .lg .pr { font-size: 10pt; margin: 0 0 1px 0; line-height: 1.25; }
+    .heads-launch-grid .lg .dt { font-size: 9pt; color: var(--heads-text-muted); margin: 0; }
+
+    /* ── Two-col (regulation, capabilities) ────────────────── */
+    .heads-content.heads-dark .heads-two-col h3 { color: #FFFFFF; }
   </style>
 </head>
 <body>
@@ -104,13 +165,13 @@
          OPENING
          ════════════════════════════════════════════════════════════ -->
 
-    <!-- 1. COVER (DARK) -->
+    <!-- 1. COVER -->
     <section class="heads-cover heads-dark" data-transition="slide">
       <div class="cover-body">
         <img class="cover-logo" src="assets/logo-heads-light.png" alt="HEADS">
         <h1>LLMs in Healthcare</h1>
         <div class="accent-line"></div>
-        <p class="subtitle">Cases, the bedside, and the law</p>
+        <p class="subtitle">Cases, the Bedside, and the Law</p>
         <div class="meta-row">
           <div class="meta-block">
             <div class="author">Mariana Pais</div>
@@ -129,10 +190,10 @@
       <div class="label">Before we start</div>
       <p class="claim-text">"How many of you used an LLM this week? And how would you know if it wasn't a good call?"</p>
       <hr class="claim-rule">
-      <p class="claim-prompt">Not a rhetorical question. It's where this session lives.</p>
+      <p class="claim-prompt">Not rhetorical. It's where this session lives.</p>
     </section>
 
-    <!-- 3. AGENDA (5-card grid) -->
+    <!-- 3. AGENDA -->
     <section class="heads-content">
       <h2>The map for today</h2>
       <div class="title-rule"></div>
@@ -180,7 +241,7 @@
       <p class="subtitle">Against what ground truth?</p>
     </section>
 
-    <!-- 5. CLAIM Walker (dark) -->
+    <!-- 5. CLAIM Walker -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <p class="claim-text">"Almost all of medicine is trying to get from 95% to 96, or 97. We spend trillions of dollars on it."</p>
@@ -188,18 +249,18 @@
       <p class="claim-prompt">— Graham Walker, MD</p>
     </section>
 
-    <!-- 6. Walker — the 95% baseline -->
+    <!-- 6. Walker — what 95% really means (NO "not X, Y" pattern) -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <h2>"95% successful" is the baseline, not the target</h2>
+      <h2>What "95% successful" really tells us</h2>
       <div class="title-rule"></div>
       <div class="body body--narrow">
         <p>Human biology is resilient. <strong>You can do many things to many people and 95% of them will be fine.</strong></p>
-        <p>That's not a bar to clear — that's the starting line. Headlines saying <em>"AI 95% successful in pilot"</em> tell us almost nothing. <strong>Medicine lives in the margins between 95% and 97%</strong>, and that's where the trillions go.</p>
+        <p>Headlines saying <em>"AI 95% successful in pilot"</em> tell us almost nothing about what the work actually requires. <strong>Medicine lives in the margins between 95% and 97%</strong>, and that's where the trillions go.</p>
       </div>
     </section>
 
-    <!-- 6b. SSRIs thought experiment — visual concept -->
+    <!-- 6b. SSRIs thought experiment -->
     <section class="heads-content heads-soft">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>A thought experiment</h2>
@@ -226,11 +287,11 @@
           <li>Polypharmacy creep</li>
           <li>Indication that no longer applies</li>
         </ul>
-        <p style="margin-top: 1em; font-style: italic;">"95% successful" is mute about the cases where the work matters.</p>
+        <p style="margin-top: 1em; font-style: italic;">A "95% successful" headline says nothing about whether any of these cases were caught.</p>
       </div>
     </section>
 
-    <!-- 7. CLAIM Ciriello (dark) -->
+    <!-- 7. CLAIM Ciriello -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <p class="claim-text">"'95% sensitivity' doesn't mean the AI finds 95% of disease. It means the AI agrees with dentists reading the same X-ray 95% of the time."</p>
@@ -238,27 +299,30 @@
       <p class="claim-prompt">— Dr. Chris Ciriello, on FDA 510(k) filings for dental X-ray AI</p>
     </section>
 
-    <!-- 8. Ciriello — the decomposition -->
+    <!-- 8. Ciriello — meme cropped, large, with attribution -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>50% × 95% = 47.5%</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-image-side reverse">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-04-10_ciriello-dental-xray-ai-510k-ground-truth.png" alt="Ciriello dental">
+        <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="background: var(--heads-bg-soft); padding: 14px; border-radius: 4px; max-height: 420px;">
+              <img src="assets/ciriello-meme-only.png" alt="Ciriello dental X-ray meme" style="max-width: 100%; max-height: 392px; object-fit: contain; display: block;">
+            </div>
+            <p class="heads-source-line">Meme via Dr. Chris Ciriello on LinkedIn — re-aggregated by Andrew Harrison</p>
           </div>
-          <div class="side-text">
+          <div style="font-size: 16pt;">
             <p><strong>Modality sensitivity</strong> (X-ray for caries vs. histology): <strong>~50%</strong>.</p>
             <p><strong>AI concordance with dentists</strong> (what FDA 510(k) measures): <strong>~95%</strong>.</p>
             <p><strong>End-to-end detection</strong>: ~47.5%.</p>
-            <p style="margin-top: 1em; font-style: italic; color: var(--heads-text-muted);">"They're 95% confident the system is 50% accurate."</p>
+            <p style="margin-top: 0.8em; font-style: italic; color: var(--heads-text-muted);">"They're 95% confident the system is 50% accurate."</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 8b. Other "what is being measured?" — visual grid -->
+    <!-- 8b. Same pattern, different specialties — w/ icons -->
     <section class="heads-content heads-soft">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Same pattern, different specialties</h2>
@@ -266,65 +330,78 @@
       <div class="body">
         <p style="font-size: 16pt; margin-bottom: 0.4em;">Once you ask "<em>compared with what?</em>" you can't stop:</p>
         <div class="heads-specialty-grid">
-          <div class="spc"><div class="spc-name">Symptom checkers</div><div class="spc-vs">vs. triage protocols, not outcomes</div></div>
-          <div class="spc"><div class="spc-name">LLM dermatology</div><div class="spc-vs">vs. dermatologists, not biopsy</div></div>
-          <div class="spc"><div class="spc-name">LLM radiology</div><div class="spc-vs">vs. radiologists, not histology</div></div>
-          <div class="spc"><div class="spc-name">Sepsis prediction</div><div class="spc-vs">AUROC vs. billing codes, not clinical adjudication</div></div>
-          <div class="spc"><div class="spc-name">Mental health chatbots</div><div class="spc-vs">vs. questionnaires, not longitudinal state</div></div>
-          <div class="spc"><div class="spc-name">Sepsis triage</div><div class="spc-vs">vs. SIRS criteria, not ICU outcomes</div></div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></div>
+            <div class="meta"><div class="spc-name">Symptom checkers</div><div class="spc-vs">vs. triage protocols, not outcomes</div></div>
+          </div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="1.5" fill="#fff"/><circle cx="16" cy="12" r="1.5" fill="#fff"/><circle cx="10" cy="18" r="1.5" fill="#fff"/></svg></div>
+            <div class="meta"><div class="spc-name">LLM dermatology</div><div class="spc-vs">vs. dermatologists, not biopsy</div></div>
+          </div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="meta"><div class="spc-name">LLM radiology</div><div class="spc-vs">vs. radiologists, not histology</div></div>
+          </div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 12 7 12 10 6 14 18 17 12 21 12"/></svg></div>
+            <div class="meta"><div class="spc-name">Sepsis prediction</div><div class="spc-vs">AUROC vs. billing codes, not adjudication</div></div>
+          </div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21c-4-4-8-7-8-12a4 4 0 018-2 4 4 0 018 2c0 5-4 8-8 12z"/></svg></div>
+            <div class="meta"><div class="spc-name">Mental health chatbots</div><div class="spc-vs">vs. questionnaires, not longitudinal state</div></div>
+          </div>
+          <div class="spc">
+            <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v8a4 4 0 008 0V4"/><circle cx="14" cy="18" r="3"/></svg></div>
+            <div class="meta"><div class="spc-name">Sepsis triage</div><div class="spc-vs">vs. SIRS criteria, not ICU outcomes</div></div>
+          </div>
         </div>
-        <p style="margin-top: 0.8em; font-size: 14pt; font-style: italic;">Concordance with an imperfect proxy ≠ clinical reality.</p>
+        <p style="margin-top: 0.7em; font-size: 13pt; font-style: italic; color: var(--heads-text-muted); text-align: center;">Concordance with an imperfect proxy is not the same as clinical reality.</p>
       </div>
     </section>
 
-    <!-- 9. CLAIM Amatouri (dark) -->
+    <!-- 9. CLAIM Amatouri — reformulated -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <p class="claim-text">"Beat-to-beat precision that feels like measurement but isn't."</p>
+      <p class="claim-text">"The numbers looked precise, beat-to-beat. Underneath, the device was tracking the last cuff reading."</p>
       <hr class="claim-rule">
       <p class="claim-prompt">Microsoft 2022 cuffless BP study: 1,125 participants. Zero added value beyond age + sex + last cuff reading.</p>
     </section>
 
-    <!-- 10. Amatouri screenshot (condensed text) -->
+    <!-- 10. Cuffless BP failure mode — reformulated (no "not X, Y" pattern) -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <h2>The cuffless BP failure mode</h2>
+      <h2>How the cuffless BP study unravelled</h2>
       <div class="title-rule"></div>
-      <div class="body">
-        <div class="heads-image-side">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-04-25_amatouri-microsoft-cuffless-bp.png" alt="Amatouri BP">
-          </div>
-          <div class="side-text">
-            <p>The wrist device <strong>anchors to the last cuff reading</strong> and tracks changes relative to that anchor.</p>
-            <p>When physiology drifts, the device stays.</p>
-            <p style="margin-top: 0.8em; font-weight: 700; color: var(--heads-lavender);">The field has a name for this: <em>regression to calibration</em>.</p>
-          </div>
+      <div class="body body--narrow">
+        <div class="heads-info-panel">
+          <p>The wrist device was calibrated to a cuff reading on first use. After that, it tracked changes relative to that anchor.</p>
+          <p>As physiology drifted, the anchor stayed put. Performance looked stable in the data because the data were aligned to the anchor.</p>
+          <p style="font-weight: 700; color: var(--heads-lavender); margin-top: 14px;">The field calls this <em>regression to calibration</em>.</p>
         </div>
       </div>
     </section>
 
-    <!-- 10b. Apply to LLMs — visual anchor diagram -->
+    <!-- 10b. Apply to LLMs — anchor diagram (no "not X, Y") -->
     <section class="heads-content heads-soft">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Now apply that to LLMs</h2>
       <div class="title-rule"></div>
       <div class="body body--narrow">
         <div class="heads-anchor-viz">
-          <div class="ax"><div class="lbl">Training corpus</div><div class="val">the cuff reading</div></div>
+          <div class="ax"><div class="lbl">Training corpus</div><div class="val">the anchor</div></div>
           <div class="arrow">→</div>
           <div class="ax"><div class="lbl">Benchmarks</div><div class="val">calibrated to it</div></div>
           <div class="arrow">→</div>
           <div class="ax"><div class="lbl">Real patient</div><div class="val">already drifted</div></div>
         </div>
         <p style="margin-top: 1em; font-style: italic; text-align: center;">The model stays anchored. The world has moved.</p>
-        <p style="font-size: 16pt; margin-top: 0.6em;">The "precision" we feel in benchmark numbers may be artefact of anchoring, not signal.</p>
+        <p style="font-size: 16pt; margin-top: 0.6em;">"Precision" in benchmark numbers can be artefact of anchoring — that's the same failure mode in a different domain.</p>
       </div>
     </section>
 
-    <!-- ─── Dialectical pair: progressive reveal ─── -->
+    <!-- ─── Dialectical pair ─── -->
 
-    <!-- 11. Two papers — visual setup -->
+    <!-- 11. Two papers in 2026 — visual pair -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Two papers in 2026, same question</h2>
@@ -347,7 +424,7 @@
       </div>
     </section>
 
-    <!-- 12. Brodeur alone -->
+    <!-- 12. Brodeur -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Brodeur et al. — <em>Science</em>, April 2026</h2>
@@ -359,7 +436,7 @@
       </div>
     </section>
 
-    <!-- 13. Bean-Mahdi alone -->
+    <!-- 13. Bean-Mahdi -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Bean &amp; Mahdi — <em>Nature Medicine</em>, February 2026</h2>
@@ -375,7 +452,7 @@
       </div>
     </section>
 
-    <!-- 14. Side by side -->
+    <!-- 14. Side by side — diverging arrows -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Side by side</h2>
@@ -395,67 +472,70 @@
             <div style="font-size: 14pt;">Same model collapses when real people use it.</div>
           </div>
         </div>
-        <p style="margin-top: 1.2em; font-size: 14pt; color: var(--heads-text-muted); text-align: center;">Same year. Both pre-registered. Both honest. Both true.</p>
+        <p style="margin-top: 1.2em; font-size: 14pt; color: var(--heads-text-muted); text-align: center;">Same year. Both pre-registered. Both honest.</p>
       </div>
     </section>
 
-    <!-- 15. Resolution claim -->
+    <!-- 14b. Rorschach — restored -->
+    <section class="heads-claim heads-dark">
+      <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
+      <div class="label">A way to see it</div>
+      <p class="claim-text">"Same data, two readings. The literature on LLMs in healthcare is a Rorschach — the answer you find depends on where you decided to look."</p>
+      <hr class="claim-rule">
+      <p class="claim-prompt">Both papers are right. The question is which slice of "performance" you measured.</p>
+    </section>
+
+    <!-- 15. Resolution claim — reformulated -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <div class="label">The synthesis</div>
       <p class="claim-text">"The benchmark and the bedside live in different worlds."</p>
       <hr class="claim-rule">
-      <p class="claim-prompt">Eclipsing the test isn't eclipsing reality. The work is what happens between them.</p>
+      <p class="claim-prompt">Performance on the test is one slice. What happens when real people use the system is another. The work is what connects them.</p>
     </section>
 
-    <!-- 16. Bean-Mahdi screenshot (overflow fixed) -->
+    <!-- 16. Bean-Mahdi locator (no screenshot, new title + layout) -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <h2>What broke in the Bean-Mahdi study</h2>
+      <h2>Where the Bean-Mahdi gap opens</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-image-side reverse">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-04-19_beger-bean-mahdi-nature-llm-self-assessment.png" alt="Beger Bean Mahdi">
-          </div>
-          <div class="side-text" style="font-size: 14pt;">
-            <ul style="margin: 0;">
-              <li>Standard benchmarks <strong>did not predict</strong> real failures</li>
-              <li>LLM-simulated patients yielded <strong>inflated scores</strong></li>
-              <li>Slight phrasing change → <strong>opposite advice</strong></li>
-              <li>Users sent <strong>incomplete</strong> messages</li>
-              <li>LLMs surfaced the right diagnosis; users <strong>didn't act on it</strong></li>
-            </ul>
-          </div>
+        <p style="font-size: 15pt;">From 94.9% (LLM alone) to 34.5% (humans using LLM), five failure points were located:</p>
+        <div class="heads-locator">
+          <div class="loc-row"><div class="loc-stage">01 · Benchmarks</div><div class="loc-finding">Standard medical benchmarks <strong>did not predict</strong> real-world failures.</div></div>
+          <div class="loc-row"><div class="loc-stage">02 · Simulated patients</div><div class="loc-finding">LLM-simulated patient interactions yielded <strong>inflated scores</strong>.</div></div>
+          <div class="loc-row"><div class="loc-stage">03 · Prompt sensitivity</div><div class="loc-finding">Slight phrasing changes flipped advice in opposite directions.</div></div>
+          <div class="loc-row"><div class="loc-stage">04 · Input completeness</div><div class="loc-finding">Users sent <strong>incomplete</strong> messages — symptoms omitted, no follow-up.</div></div>
+          <div class="loc-row"><div class="loc-stage">05 · Action gap</div><div class="loc-finding">LLMs surfaced the correct diagnosis; users <strong>didn't act on it</strong>.</div></div>
         </div>
       </div>
     </section>
 
-    <!-- 17. Reis et al. — input-stage degradation with bar chart -->
+    <!-- 17. Reis et al. — animated bar chart, statistical significance -->
     <section class="heads-content heads-soft">
       <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Reis et al. — what the listener does to the message</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <p style="font-size: 15pt;">Pre-registered RCT, <em>Nature Health</em> 2026, n = 500. Participants simulated reporting symptoms to either a chatbot or a physician.</p>
-        <div class="heads-barchart">
+        <p style="font-size: 15pt;">Pre-registered RCT, <em>Nature Health</em> 2026, <em>n</em> = 500. Same person reports same symptoms — once to a chatbot, once to a physician.</p>
+        <div class="heads-barchart" data-animate-bars>
           <div class="bar-row">
             <div class="bar-label">Human doctor</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div>
-            <div class="bar-value">2.82</div>
+            <div class="bar-track"><div class="bar-fill" style="--target-width: 80%"></div></div>
+            <div class="bar-value">2.80</div>
           </div>
           <div class="bar-row">
             <div class="bar-label">AI chatbot</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 73%"></div></div>
-            <div class="bar-value">2.60</div>
+            <div class="bar-track"><div class="bar-fill" style="--target-width: 73%"></div></div>
+            <div class="bar-value">2.55</div>
           </div>
           <div class="bar-row" style="margin-top: 6px;">
             <div class="bar-label" style="font-weight: 700;">Delta</div>
-            <div class="bar-track"><div class="bar-fill delta" style="width: 8%"></div></div>
+            <div class="bar-track"><div class="bar-fill delta" style="--target-width: 8%"></div></div>
             <div class="bar-value" style="color: var(--heads-alert);">−8%</div>
           </div>
         </div>
-        <p style="margin-top: 0.8em; font-size: 14pt; text-align: center;">Mean suitability rating for triage (1–5 scale, GPT-5.2 as evaluator).<br>Same person degrades their input when they know it's AI.</p>
+        <p style="margin-top: 0.8em; font-size: 13pt; text-align: center;">Mean suitability rating for triage (1–5 scale, physician-validated LLM evaluator, inter-rater ICC = 0.75).<br>Difference statistically significant under pre-registered analysis.</p>
       </div>
     </section>
 
@@ -480,7 +560,7 @@
       <p class="subtitle">Where the line is — and isn't.</p>
     </section>
 
-    <!-- 20. OpenEvidence screenshot — neutral framing -->
+    <!-- 20. OpenEvidence — info panel layout -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>A live case: OpenEvidence in Europe</h2>
@@ -490,16 +570,16 @@
           <div class="image-frame heads-screenshot">
             <img src="assets/openevidence-eu-uk-blocked.png" alt="OpenEvidence blocked in EU/UK">
           </div>
-          <div class="side-text">
-            <p>Today, if you open <em>openevidence.com</em> from anywhere in the EU or the UK, you see this page.</p>
-            <p>OpenEvidence is a medical search engine with AI-synthesised answers, popular among US clinicians — where it remains available.</p>
-            <p>In the EU and UK, it <strong>was</strong> available; it withdrew in 2026, citing the EU AI Act and adjacent regulation.</p>
+          <div class="heads-info-panel" style="align-self: center;">
+            <p>This is what opens at <em>openevidence.com</em> from anywhere in the EU or UK today.</p>
+            <p>OpenEvidence is a medical search engine with AI-synthesised answers, popular among US clinicians — where it remains live.</p>
+            <p>In the EU and UK it <strong>was</strong> available; it withdrew in 2026, citing the EU AI Act and adjacent regulation.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 21. The paradox -->
+    <!-- 21. The obvious question -->
     <section class="heads-content heads-soft">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>The obvious question</h2>
@@ -512,39 +592,43 @@
       </div>
     </section>
 
-    <!-- 22. Intended use claim -->
+    <!-- 22. The line — reformulated (Q9) -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <div class="label">Part 02 · the line</div>
       <p class="claim-text">"What turns information into a medical device is two things: the output is shaped to a specific clinical question, and the manufacturer presents it as supporting a diagnostic or therapeutic decision."</p>
       <hr class="claim-rule">
-      <p class="claim-prompt">The same kind of clinical question, with a different declared intent, falls under a different rule.</p>
+      <p class="claim-prompt">The same input may or may not count as a "clinical question" — it depends on whose product is answering and how the manufacturer declared its purpose.</p>
     </section>
 
-    <!-- 23. EU vs US -->
+    <!-- 23. Transatlantic split — flag panels -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>The transatlantic split</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-two-col">
-          <div class="two-col">
-            <div>
-              <h3>EU — EMA + HMA (Aug 2024)</h3>
-              <p style="font-size: 16pt;">"Facilitate the safe, responsible and effective use of LLMs."</p>
-              <p style="font-size: 14pt; color: var(--heads-text-muted);">Gradual, principle-based framework. Articulates with AI Act + MDR. OpenEvidence withdrew from the EU/UK in 2026.</p>
+        <div class="heads-flag-split">
+          <div class="pan">
+            <div class="flag-wrap">
+              <div class="flag flag-eu" aria-label="EU"></div>
+              <h3 class="pan-h">European Union <span class="when">— EMA + HMA, Aug 2024</span></h3>
             </div>
-            <div>
-              <h3>US — White House (Mar 2026)</h3>
-              <p style="font-size: 16pt;"><strong>"Congress should NOT create any new federal rulemaking body to regulate AI."</strong></p>
-              <p style="font-size: 14pt; color: var(--heads-text-muted);">Federal preempts state laws. Sandboxes. Innovation by removing barriers.</p>
+            <p class="lead">"Facilitate the safe, responsible and effective use of LLMs."</p>
+            <p class="foot">Gradual, principle-based framework. Articulates with AI Act + MDR. OpenEvidence withdrew from the EU/UK in 2026.</p>
+          </div>
+          <div class="pan">
+            <div class="flag-wrap">
+              <div class="flag flag-us" aria-label="US"></div>
+              <h3 class="pan-h">United States <span class="when">— White House, Mar 2026</span></h3>
             </div>
+            <p class="lead"><strong>"Congress should NOT create any new federal rulemaking body to regulate AI."</strong></p>
+            <p class="foot">Federal preempts state laws. Sandboxes. Innovation by removing barriers.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 24. Otles iceberg quote -->
+    <!-- 24. Ötleş iceberg quote -->
     <section class="heads-quote">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <div class="quote-block">
@@ -553,7 +637,7 @@
       </div>
     </section>
 
-    <!-- 25. AMA stat + OpenAI release -->
+    <!-- 25. While we govern the tip — no value judgement (Q11) -->
     <section class="heads-content heads-dark">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>While we govern the tip</h2>
@@ -569,8 +653,16 @@
             <div class="stat-label">OpenAI launches ChatGPT for Clinicians — free for verified US clinicians.</div>
           </div>
         </div>
-        <p style="margin-top: 1em;">Most of this use happens <strong>outside institutional oversight</strong>. Governance designed for use-case-specific tools is the wrong shape for general-purpose chat platforms.</p>
+        <p style="margin-top: 1em;">Most of this use happens <strong>outside institutional oversight.</strong> The frameworks in place today were designed for use-case-specific tools, and the dominant pattern in 2026 is general-purpose chat platforms.</p>
       </div>
+    </section>
+
+    <!-- 25b. NEW transition slide — bridges into right-to-understand (Q12) -->
+    <section class="heads-section heads-soft" data-transition="fade">
+      <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
+      <div class="label">Part 02 · zoom in</div>
+      <h2>From the system, to the patient</h2>
+      <p class="subtitle">If governance has gaps at the system level, what does the patient inherit?</p>
     </section>
 
     <!-- 26. Ankolekar right-to-understand -->
@@ -578,7 +670,7 @@
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill active">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <p class="claim-text">"AI Act and GDPR give patients legal grounds to seek explanations of AI-driven medical recommendations, but neither framework specifies what a meaningful explanation requires in clinical practice."</p>
       <hr class="claim-rule">
-      <p class="claim-prompt">— Ankolekar, <em>JMIR</em> 2026</p>
+      <p class="claim-prompt">— Ankolekar, <em>JMIR</em> 2026 — on the patient's right to understand</p>
     </section>
 
     <!-- 27. Open question — Part 2 -->
@@ -602,96 +694,78 @@
       <p class="subtitle">In production, in motion, in fraud.</p>
     </section>
 
-    <!-- 29. Q1 2026 timeline — compact (smaller cards) -->
+    <!-- 29. Q1 2026 timeline — compact 4x2 grid fully visible -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Q1 2026 — eight launches in four months</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-cards">
-          <div class="heads-grid" style="--cols: 4; gap: 12px;">
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Anthropic</h3>
-              <p style="font-size: 11pt; margin: 0;">Claude for Healthcare<br><span style="color: var(--heads-text-muted);">Jan 11</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">OpenAI</h3>
-              <p style="font-size: 11pt; margin: 0;">ChatGPT → for Clinicians<br><span style="color: var(--heads-text-muted);">Jan 7 / Apr 22</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Microsoft</h3>
-              <p style="font-size: 11pt; margin: 0;">Copilot Health + MAI-DxO<br><span style="color: var(--heads-text-muted);">Mar 12</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Amazon</h3>
-              <p style="font-size: 11pt; margin: 0;">One Medical Health AI<br><span style="color: var(--heads-text-muted);">Jan 21 · 200M Prime</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Google DeepMind</h3>
-              <p style="font-size: 11pt; margin: 0;">Multimodal co-clinician<br><span style="color: var(--heads-text-muted);">Apr 30</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Salesforce + Epic</h3>
-              <p style="font-size: 11pt; margin: 0;">Agentforce + EHR agents<br><span style="color: var(--heads-text-muted);">Mar / Apr</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">AWS</h3>
-              <p style="font-size: 11pt; margin: 0;">Connect Health (agentic)<br><span style="color: var(--heads-text-muted);">May 5</span></p>
-            </div>
-            <div class="heads-card" style="padding: 14px 16px;">
-              <h3 style="font-size: 13pt; margin-bottom: 4px;">Verily</h3>
-              <p style="font-size: 11pt; margin: 0;">Lightpath chronic care<br><span style="color: var(--heads-text-muted);">Mar / Apr</span></p>
-            </div>
-          </div>
+        <div class="heads-launch-grid">
+          <div class="lg"><p class="co">Anthropic</p><p class="pr">Claude for Healthcare</p><p class="dt">Jan 11</p></div>
+          <div class="lg"><p class="co">OpenAI</p><p class="pr">ChatGPT → for Clinicians</p><p class="dt">Jan 7 / Apr 22</p></div>
+          <div class="lg"><p class="co">Microsoft</p><p class="pr">Copilot Health + MAI-DxO</p><p class="dt">Mar 12</p></div>
+          <div class="lg"><p class="co">Amazon</p><p class="pr">One Medical Health AI</p><p class="dt">Jan 21 · 200M Prime</p></div>
+          <div class="lg"><p class="co">Google DeepMind</p><p class="pr">Multimodal co-clinician</p><p class="dt">Apr 30</p></div>
+          <div class="lg"><p class="co">Salesforce + Epic</p><p class="pr">Agentforce + EHR agents</p><p class="dt">Mar / Apr</p></div>
+          <div class="lg"><p class="co">AWS</p><p class="pr">Connect Health (agentic)</p><p class="dt">May 5</p></div>
+          <div class="lg"><p class="co">Verily</p><p class="pr">Lightpath chronic care</p><p class="dt">Mar / Apr</p></div>
         </div>
+        <p style="margin-top: 1em; font-size: 14pt; font-style: italic; color: var(--heads-text-muted); text-align: center;">Four months. Eight production launches. Different governance regimes.</p>
       </div>
     </section>
 
-    <!-- 30. Viz.ai concrete -->
+    <!-- 30. Viz.ai — article image cropped, no "X, not Y" -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>One case in production at scale: Viz.ai</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-image-side">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-04-25_bass-vizai-stroke-workflow.png" alt="Bass Viz.ai">
+        <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: center;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="background: var(--heads-bg-soft); padding: 14px; border-radius: 4px;">
+              <img src="assets/vizai-article-only.png" alt="The Algorithm Will See You Now — Viz.ai article" style="max-width: 100%; max-height: 400px; object-fit: contain; display: block;">
+            </div>
+            <p class="heads-source-line">"The Algorithm Will See You Now" — shared by Michael Bass</p>
           </div>
-          <div class="side-text">
-            <ul style="font-size: 15pt;">
-              <li><strong>2,000</strong> US hospitals, <strong>230M</strong> covered</li>
-              <li>Stroke workup: <strong>13–14 calls → 7 min</strong></li>
-              <li>HCM: <strong>56 steps → minutes</strong></li>
-              <li>Treatment <strong>88 min faster</strong></li>
-              <li>90% of pathways <strong>EHR-triggered using Claude</strong></li>
+          <div style="font-size: 15pt;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; border-bottom: 1px solid var(--heads-line-soft);"><strong>2,000</strong> US hospitals · <strong>230M</strong> covered</li>
+              <li style="padding: 6px 0; border-bottom: 1px solid var(--heads-line-soft);">Stroke workup: 13–14 calls → <strong>7 min</strong></li>
+              <li style="padding: 6px 0; border-bottom: 1px solid var(--heads-line-soft);">HCM: 56 steps → <strong>minutes</strong></li>
+              <li style="padding: 6px 0; border-bottom: 1px solid var(--heads-line-soft);">Treatment <strong>88 min faster</strong></li>
+              <li style="padding: 6px 0;">90% of pathways EHR-triggered with Claude</li>
             </ul>
+            <p style="margin-top: 0.8em; font-size: 14pt; color: var(--heads-text-muted); font-style: italic;">A clinical workflow already running across most of US emergency stroke care.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 31. Park adversarial -->
+    <!-- 31. Park adversarial claim — reformulated -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <p class="claim-text">"AI can mimic humans, operate computers, navigate complex workflows. Pair that with stolen identity data. It can literally be you."</p>
+      <p class="claim-text">"AI can mimic humans, operate computers, navigate complex workflows. Paired with stolen identity data, it can literally be you."</p>
       <hr class="claim-rule">
       <p class="claim-prompt">— Yubin Park, on vibe-coded healthcare fraud</p>
     </section>
 
-    <!-- 32. Adversarial (text reduced) -->
+    <!-- 32. Adversarial — chart only, no "X, not Y" -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
       <h2>Same capabilities, two sides</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-image-side reverse">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-04-15_park-vibe-coded-healthcare-fraud.png" alt="Park vibe-coded fraud">
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="background: var(--heads-bg-soft); padding: 14px; border-radius: 4px;">
+              <img src="assets/park-chart-only.png" alt="Park signal-strength chart for fraud detection" style="max-width: 100%; max-height: 400px; object-fit: contain; display: block;">
+            </div>
+            <p class="heads-source-line">"What Can AI Actually Fake?" — Yubin Park</p>
           </div>
-          <div class="side-text">
-            <p>The eight Big Tech launches of Q1 2026 are <strong>capabilities</strong>.</p>
-            <p>Capabilities are fungible. What enables a workflow agent enables a fraud agent.</p>
-            <p style="font-size: 14pt; color: var(--heads-text-muted);">Detectors today: IRS filing history, SSA earnings, billing physics, "diagnostic entropy fingerprints".</p>
+          <div style="font-size: 15pt;">
+            <p>The Q1 2026 launches deliver <strong>capabilities</strong>. Capabilities are fungible.</p>
+            <p>What enables a workflow agent enables a fraud agent.</p>
+            <p style="font-size: 13pt; color: var(--heads-text-muted); margin-top: 14px;">Detectors that still work: IRS filing history, SSA earnings, billing physics, "diagnostic entropy fingerprints".</p>
           </div>
         </div>
       </div>
@@ -717,26 +791,24 @@
       <p class="claim-prompt">— Topaz et al., <em>The Lancet</em> 2026</p>
     </section>
 
-    <!-- 35. Topaz numbers visual -->
+    <!-- 35. Topaz audit — data-only, no screenshot -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill active">evidence</span><span class="pill">clinic</span></div>
       <h2>An audit of biomedical reference integrity</h2>
       <div class="title-rule"></div>
       <div class="body">
-        <div class="heads-image-side reverse">
-          <div class="image-frame heads-screenshot">
-            <img src="assets/linkedin-2026-05-09_baptista-fabricated-citations.png" alt="Baptista Peltonen Topaz">
-          </div>
-          <div class="side-text">
-            <p style="font-size: 14pt;">Density of fabricated references over time:</p>
-            <ul style="font-size: 14pt; list-style: none; padding: 0;">
-              <li>2023: 1 in <strong>2,828</strong> papers</li>
-              <li>2025: 1 in <strong>458</strong></li>
-              <li>Q1 2026: 1 in <strong>277</strong></li>
-            </ul>
-            <p style="font-size: 13pt; color: var(--heads-text-muted); margin-top: 0.8em;">2,471,758 papers audited. 125M+ references analysed. <strong>98.4%</strong> of affected papers without publisher action. Review articles: 57% higher fabrication rate.</p>
-          </div>
+        <p style="font-size: 14pt; color: var(--heads-text-muted); margin-bottom: 0.4em;">Density of fabricated references over time, biomedical literature:</p>
+        <div class="heads-audit-row">
+          <div class="au"><div class="year">2023</div><div class="ratio"><span class="one">1 in</span> 2,828</div><div class="lab">papers</div></div>
+          <div class="au"><div class="year">Q4 2025</div><div class="ratio"><span class="one">1 in</span> 458</div><div class="lab">papers</div></div>
+          <div class="au latest"><div class="year">Q1 2026</div><div class="ratio"><span class="one">1 in</span> 277</div><div class="lab">papers · still accelerating</div></div>
         </div>
+        <div class="heads-audit-foot">
+          <div class="af"><p class="v">2,471,758</p><p class="l">papers audited (PMC Open Access)</p></div>
+          <div class="af"><p class="v">125.6M</p><p class="l">references analysed</p></div>
+          <div class="af"><p class="v">98.4%</p><p class="l">of affected papers had no publisher action</p></div>
+        </div>
+        <p style="font-size: 13pt; color: var(--heads-text-muted); margin-top: 0.8em; text-align: center;"><strong>+57%</strong> fabrication rate in review articles vs primary papers (<em>p</em> &lt; 0.0001).</p>
       </div>
     </section>
 
@@ -753,7 +825,7 @@
       </div>
     </section>
 
-    <!-- 37. The meta-irony -->
+    <!-- 37. Meta-irony -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill active">evidence</span><span class="pill">clinic</span></div>
       <p class="claim-text">"To audit 2.5 million papers and find LLM-generated fabricated citations, Topaz et al. used <strong>Claude 3.5 Haiku</strong>."</p>
@@ -761,7 +833,7 @@
       <p class="claim-prompt">AI defending the evidence base from AI. Is that a lot, or a little?</p>
     </section>
 
-    <!-- 38. Nyrhi (moved here from Part 1) -->
+    <!-- 38. Nyrhi κ table -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill active">evidence</span><span class="pill">clinic</span></div>
       <h2>And the layer above — the systematic review</h2>
@@ -805,12 +877,12 @@
     <!-- 41. Heudel CLAIM -->
     <section class="heads-claim heads-dark">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill active">clinic</span></div>
-      <p class="claim-text">"Endoscopists who used AI for months and then worked without it: <strong>adenoma detection rate dropped from 28.4% to 22.4%</strong>. AI replaced no one. It eroded the baseline."</p>
+      <p class="claim-text">"Endoscopists who used AI for months and then worked without it: <strong>adenoma detection rate dropped from 28.4% to 22.4%</strong>."</p>
       <hr class="claim-rule">
       <p class="claim-prompt">— Heudel et al. <em>ESMO RWD</em> 2026</p>
     </section>
 
-    <!-- 42. Heudel — the numbers (4-col, smaller font) -->
+    <!-- 42. Deskilling numbers -->
     <section class="heads-content">
       <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill active">clinic</span></div>
       <h2>What deskilling looks like across specialties</h2>
@@ -875,7 +947,7 @@
          CLOSING
          ════════════════════════════════════════════════════════════ -->
 
-    <!-- 45. Synthesis — condensed to fit -->
+    <!-- 45. Where this leaves us -->
     <section class="heads-content heads-dark">
       <h2>Where this leaves us</h2>
       <div class="title-rule"></div>
@@ -883,7 +955,7 @@
         <ol style="font-size: 15pt; line-height: 1.5; column-count: 2; column-gap: 36px;">
           <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Every accuracy number</strong> deserves "against what ground truth?"</li>
           <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Benchmarks and bedside</strong> live in different worlds — the work is connecting them</li>
-          <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Regulatory line</strong> for "medical device" is narrower than the capability — depends on declared intent</li>
+          <li style="break-inside: avoid; margin-bottom: 10px;"><strong>The "medical device" line</strong> is narrower than the capability — it depends on declared intent</li>
           <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Most clinicians</strong> use general-purpose AI; most of that use is unmonitored</li>
           <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Healthcare agents</strong> are delivering workflow value (Viz.ai, scribes); same capabilities used adversarially</li>
           <li style="break-inside: avoid; margin-bottom: 10px;"><strong>Empirical evidence of deskilling</strong> after AI exposure across several specialties</li>
@@ -909,6 +981,25 @@
     width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
     hash: true, slideNumber: false, controls: true, progress: true, history: true,
     transition: 'slide', transitionSpeed: 'default'
+  });
+
+  // Animate bar charts when their slide becomes active
+  Reveal.on('slidechanged', function (e) {
+    if (!e.currentSlide) return;
+    e.currentSlide.querySelectorAll('[data-animate-bars]').forEach(function (chart) {
+      chart.classList.remove('animate-in');
+      // Force reflow so the transition restarts on revisit
+      void chart.offsetWidth;
+      requestAnimationFrame(function () { chart.classList.add('animate-in'); });
+    });
+  });
+  // Trigger on initial load too
+  Reveal.on('ready', function () {
+    var slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    slide.querySelectorAll('[data-animate-bars]').forEach(function (chart) {
+      requestAnimationFrame(function () { chart.classList.add('animate-in'); });
+    });
   });
 </script>
 </body>
