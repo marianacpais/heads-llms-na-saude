@@ -171,6 +171,161 @@
       pointer-events: none;
       z-index: 1;
     }
+
+    /* ──────────────────────────────────────────────────────────
+       WATERMARK — small HEADS logo on every slide
+       ────────────────────────────────────────────────────────── */
+    .heads-watermark {
+      position: absolute;
+      bottom: 14px;
+      right: 22px;
+      height: 18px;
+      width: auto;
+      opacity: 0.42;
+      z-index: 5;
+      pointer-events: none;
+      user-select: none;
+    }
+    .heads-cover .heads-watermark,
+    .heads-closing .heads-watermark { display: none; }
+
+    /* ──────────────────────────────────────────────────────────
+       TONAL VARIANTS — additional palette tones for variety
+       ────────────────────────────────────────────────────────── */
+    /* Stat-row tinted cards */
+    .heads-stat-row > div[data-tint="blue"]     { background: var(--heads-tint-blue) !important; }
+    .heads-stat-row > div[data-tint="yellow"]   { background: var(--heads-tint-yellow) !important; }
+    .heads-stat-row > div[data-tint="bronze"]   { background: var(--heads-tint-bronze) !important; }
+    .heads-stat-row > div[data-tint="lavender"] { background: var(--heads-tint-lavender) !important; }
+    .heads-stat-row > div[data-tint="alert"]    { background: var(--heads-tint-alert) !important; }
+
+    .heads-content.heads-dark .heads-stat-row > div[data-tint="yellow"] {
+      background: rgba(246, 211, 23, 0.22) !important;
+      border-color: rgba(246, 211, 23, 0.45) !important;
+    }
+    .heads-content.heads-dark .heads-stat-row > div[data-tint="yellow"] .stat-num { color: var(--heads-yellow); }
+    .heads-content.heads-dark .heads-stat-row > div[data-tint="blue"] {
+      background: rgba(46, 120, 192, 0.22) !important;
+      border-color: rgba(46, 120, 192, 0.45) !important;
+    }
+    .heads-content.heads-dark .heads-stat-row > div[data-tint="blue"] .stat-num { color: #8ABEF5; }
+
+    /* Launch grid tonal stripe colors */
+    .heads-launch-grid .lg[data-tint="lavender"] { border-left-color: var(--heads-lavender); background: var(--heads-tint-lavender); }
+    .heads-launch-grid .lg[data-tint="blue"]     { border-left-color: var(--heads-blue);     background: var(--heads-tint-blue); }
+    .heads-launch-grid .lg[data-tint="yellow"]   { border-left-color: var(--heads-yellow);   background: var(--heads-tint-yellow); }
+    .heads-launch-grid .lg[data-tint="bronze"]   { border-left-color: var(--heads-bronze);   background: var(--heads-tint-bronze); }
+
+    /* Two-papers pair tonal */
+    .heads-papers-pair .pp[data-tint="lavender"] { background: var(--heads-tint-lavender); border-left: 4px solid var(--heads-lavender); }
+    .heads-papers-pair .pp[data-tint="blue"]     { background: var(--heads-tint-blue);     border-left: 4px solid var(--heads-blue); }
+    .heads-papers-pair .pp[data-tint="lavender"] .journal { color: var(--heads-lavender); }
+    .heads-papers-pair .pp[data-tint="blue"] .journal { color: var(--heads-blue-deep); }
+
+    /* Specialty grid: alt tint on icons */
+    .heads-specialty-grid .spc:nth-child(2n) .ic { background: var(--heads-blue); }
+    .heads-specialty-grid .spc:nth-child(3n) .ic { background: var(--heads-bronze); }
+
+    /* Audit row already has bronze latest. Add subtle blue to mid card. */
+    .heads-audit-row .au:nth-child(2) { background: var(--heads-tint-blue); }
+
+    /* Agenda: 5 colored numbers (echoes the part-colors) */
+    .heads-agenda .agenda-card:nth-child(1) .num { color: var(--heads-lavender); }
+    .heads-agenda .agenda-card:nth-child(2) .num { color: var(--heads-blue); }
+    .heads-agenda .agenda-card:nth-child(3) .num { color: var(--heads-bronze); }
+    .heads-agenda .agenda-card:nth-child(4) .num { color: var(--heads-alert); }
+    .heads-agenda .agenda-card:nth-child(5) .num { color: var(--heads-blue-deep); }
+
+    /* Pill colors — distinct per part for the progress strip */
+    .heads-progress-strip .pill.active { background: var(--heads-lavender); }
+    .heads-progress-strip .pill:nth-child(2).active { background: var(--heads-blue); }
+    .heads-progress-strip .pill:nth-child(3).active { background: var(--heads-bronze); }
+    .heads-progress-strip .pill:nth-child(4).active { background: var(--heads-alert); }
+    .heads-progress-strip .pill:nth-child(5).active { background: var(--heads-blue-deep); }
+
+    /* ──────────────────────────────────────────────────────────
+       ENTRY ANIMATIONS — stagger cards on slide enter
+       ────────────────────────────────────────────────────────── */
+    .heads-stat-row > div,
+    .heads-papers-pair .pp,
+    .heads-launch-grid .lg,
+    .heads-agenda .agenda-card,
+    .heads-specialty-grid .spc,
+    .heads-audit-row .au,
+    .heads-audit-foot .af,
+    .heads-flag-split .pan,
+    .heads-diverge .arc,
+    .heads-locator .loc-row,
+    .heads-anchor-viz .ax,
+    .heads-anchor-viz .arrow,
+    .heads-info-panel {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s var(--heads-ease), transform 0.6s var(--heads-ease);
+    }
+    .reveal .slides section.is-active .heads-stat-row > div,
+    .reveal .slides section.is-active .heads-papers-pair .pp,
+    .reveal .slides section.is-active .heads-launch-grid .lg,
+    .reveal .slides section.is-active .heads-agenda .agenda-card,
+    .reveal .slides section.is-active .heads-specialty-grid .spc,
+    .reveal .slides section.is-active .heads-audit-row .au,
+    .reveal .slides section.is-active .heads-audit-foot .af,
+    .reveal .slides section.is-active .heads-flag-split .pan,
+    .reveal .slides section.is-active .heads-diverge .arc,
+    .reveal .slides section.is-active .heads-locator .loc-row,
+    .reveal .slides section.is-active .heads-anchor-viz .ax,
+    .reveal .slides section.is-active .heads-anchor-viz .arrow,
+    .reveal .slides section.is-active .heads-info-panel { opacity: 1; transform: translateY(0); }
+
+    /* Stagger via nth-child */
+    .is-active .heads-launch-grid .lg:nth-child(1),
+    .is-active .heads-agenda .agenda-card:nth-child(1),
+    .is-active .heads-specialty-grid .spc:nth-child(1),
+    .is-active .heads-stat-row > div:nth-child(1),
+    .is-active .heads-audit-row .au:nth-child(1),
+    .is-active .heads-audit-foot .af:nth-child(1),
+    .is-active .heads-locator .loc-row:nth-child(1),
+    .is-active .heads-flag-split .pan:nth-child(1),
+    .is-active .heads-diverge .arc:nth-child(1) { transition-delay: 0.08s; }
+    .is-active .heads-launch-grid .lg:nth-child(2),
+    .is-active .heads-agenda .agenda-card:nth-child(2),
+    .is-active .heads-specialty-grid .spc:nth-child(2),
+    .is-active .heads-stat-row > div:nth-child(2),
+    .is-active .heads-audit-row .au:nth-child(2),
+    .is-active .heads-audit-foot .af:nth-child(2),
+    .is-active .heads-locator .loc-row:nth-child(2),
+    .is-active .heads-flag-split .pan:nth-child(2),
+    .is-active .heads-diverge .arc:nth-child(2) { transition-delay: 0.18s; }
+    .is-active .heads-launch-grid .lg:nth-child(3),
+    .is-active .heads-agenda .agenda-card:nth-child(3),
+    .is-active .heads-specialty-grid .spc:nth-child(3),
+    .is-active .heads-stat-row > div:nth-child(3),
+    .is-active .heads-audit-row .au:nth-child(3),
+    .is-active .heads-audit-foot .af:nth-child(3),
+    .is-active .heads-locator .loc-row:nth-child(3) { transition-delay: 0.28s; }
+    .is-active .heads-launch-grid .lg:nth-child(4),
+    .is-active .heads-agenda .agenda-card:nth-child(4),
+    .is-active .heads-specialty-grid .spc:nth-child(4),
+    .is-active .heads-stat-row > div:nth-child(4),
+    .is-active .heads-locator .loc-row:nth-child(4) { transition-delay: 0.38s; }
+    .is-active .heads-launch-grid .lg:nth-child(5),
+    .is-active .heads-agenda .agenda-card:nth-child(5),
+    .is-active .heads-specialty-grid .spc:nth-child(5),
+    .is-active .heads-locator .loc-row:nth-child(5) { transition-delay: 0.48s; }
+    .is-active .heads-launch-grid .lg:nth-child(6),
+    .is-active .heads-specialty-grid .spc:nth-child(6) { transition-delay: 0.58s; }
+    .is-active .heads-launch-grid .lg:nth-child(7) { transition-delay: 0.68s; }
+    .is-active .heads-launch-grid .lg:nth-child(8) { transition-delay: 0.78s; }
+
+    /* Headings + title rule subtle entrance */
+    .reveal .slides section.heads-content h2,
+    .reveal .slides section.heads-content .title-rule {
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal .slides section.is-active.heads-content h2,
+    .reveal .slides section.is-active.heads-content .title-rule { opacity: 1; transform: translateY(0); transition-delay: 0.02s; }
   </style>
 </head>
 <body>
@@ -425,12 +580,12 @@
       <div class="body">
         <p style="font-size: 18pt; text-align: center;"><strong>Can LLMs perform like physicians?</strong></p>
         <div class="heads-papers-pair">
-          <div class="pp">
+          <div class="pp" data-tint="blue">
             <div class="journal">Science · April 2026</div>
             <div class="qt">Brodeur et al.</div>
             <div class="sm">OpenAI o1 vs. physicians on NEJM CPCs<br>Pre-registered, hundreds of physician baseline</div>
           </div>
-          <div class="pp">
+          <div class="pp" data-tint="lavender">
             <div class="journal">Nature Medicine · Feb 2026</div>
             <div class="qt">Bean &amp; Mahdi</div>
             <div class="sm">GPT-4o, Llama 3, Command R+ used by 1,298 UK adults<br>Pre-registered, randomised</div>
@@ -653,11 +808,11 @@
       <div class="title-rule"></div>
       <div class="body body--narrow">
         <div class="heads-stat-row">
-          <div>
+          <div data-tint="yellow">
             <div class="stat-num">72%</div>
             <div class="stat-label">Of physicians use AI in practice (AMA 2026). Up from 48% in 2025.</div>
           </div>
-          <div>
+          <div data-tint="blue">
             <div class="stat-num">Apr 22</div>
             <div class="stat-label">OpenAI launches ChatGPT for Clinicians — free for verified US clinicians.</div>
           </div>
@@ -710,14 +865,14 @@
       <div class="title-rule"></div>
       <div class="body">
         <div class="heads-launch-grid">
-          <div class="lg"><p class="co">Anthropic</p><p class="pr">Claude for Healthcare</p><p class="dt">Jan 11</p></div>
-          <div class="lg"><p class="co">OpenAI</p><p class="pr">ChatGPT → for Clinicians</p><p class="dt">Jan 7 / Apr 22</p></div>
-          <div class="lg"><p class="co">Microsoft</p><p class="pr">Copilot Health + MAI-DxO</p><p class="dt">Mar 12</p></div>
-          <div class="lg"><p class="co">Amazon</p><p class="pr">One Medical Health AI</p><p class="dt">Jan 21 · 200M Prime</p></div>
-          <div class="lg"><p class="co">Google DeepMind</p><p class="pr">Multimodal co-clinician</p><p class="dt">Apr 30</p></div>
-          <div class="lg"><p class="co">Salesforce + Epic</p><p class="pr">Agentforce + EHR agents</p><p class="dt">Mar / Apr</p></div>
-          <div class="lg"><p class="co">AWS</p><p class="pr">Connect Health (agentic)</p><p class="dt">May 5</p></div>
-          <div class="lg"><p class="co">Verily</p><p class="pr">Lightpath chronic care</p><p class="dt">Mar / Apr</p></div>
+          <div class="lg" data-tint="lavender"><p class="co">Anthropic</p><p class="pr">Claude for Healthcare</p><p class="dt">Jan 11</p></div>
+          <div class="lg" data-tint="blue"><p class="co">OpenAI</p><p class="pr">ChatGPT → for Clinicians</p><p class="dt">Jan 7 / Apr 22</p></div>
+          <div class="lg" data-tint="bronze"><p class="co">Microsoft</p><p class="pr">Copilot Health + MAI-DxO</p><p class="dt">Mar 12</p></div>
+          <div class="lg" data-tint="yellow"><p class="co">Amazon</p><p class="pr">One Medical Health AI</p><p class="dt">Jan 21 · 200M Prime</p></div>
+          <div class="lg" data-tint="blue"><p class="co">Google DeepMind</p><p class="pr">Multimodal co-clinician</p><p class="dt">Apr 30</p></div>
+          <div class="lg" data-tint="lavender"><p class="co">Salesforce + Epic</p><p class="pr">Agentforce + EHR agents</p><p class="dt">Mar / Apr</p></div>
+          <div class="lg" data-tint="yellow"><p class="co">AWS</p><p class="pr">Connect Health (agentic)</p><p class="dt">May 5</p></div>
+          <div class="lg" data-tint="bronze"><p class="co">Verily</p><p class="pr">Lightpath chronic care</p><p class="dt">Mar / Apr</p></div>
         </div>
         <p style="margin-top: 1em; font-size: 14pt; font-style: italic; color: var(--heads-text-muted); text-align: center;">Four months. Eight production launches. Different governance regimes.</p>
       </div>
@@ -758,19 +913,19 @@
       <div class="body">
         <p style="font-size: 15pt; margin-bottom: 0.4em;">Rotenstein et al., <em>JAMA</em> 2026 — the largest multisite AI-scribe study to date. <strong>8,581 clinicians · 5 health systems · 3 vendor platforms · 2 years.</strong></p>
         <div class="heads-stat-row four" style="margin-top: 0.6em;">
-          <div>
+          <div data-tint="blue">
             <div class="stat-num">−13.4 min</div>
             <div class="stat-label">EHR time per 8h of visits (95% CI 9.1–17.7)</div>
           </div>
-          <div>
+          <div data-tint="blue">
             <div class="stat-num">−16.0 min</div>
             <div class="stat-label">Documentation time per 8h (95% CI 13.7–18.3)</div>
           </div>
-          <div>
+          <div data-tint="bronze">
             <div class="stat-num">+0.49</div>
             <div class="stat-label">Additional visits per week (95% CI 0.17–0.81)</div>
           </div>
-          <div>
+          <div data-tint="alert">
             <div class="stat-num">±0</div>
             <div class="stat-label">After-hours EHR ("pajama time") — no significant change</div>
           </div>
@@ -948,19 +1103,19 @@
       <div class="title-rule"></div>
       <div class="body">
         <div class="heads-stat-row four">
-          <div>
+          <div data-tint="alert">
             <div class="stat-num">−6 pp</div>
             <div class="stat-label">Adenoma detection in colonoscopy (28.4 → 22.4) after AI use</div>
           </div>
-          <div>
+          <div data-tint="bronze">
             <div class="stat-num">+12-15%</div>
             <div class="stat-label">False-positive recalls in mammography under wrong AI prompts</div>
           </div>
-          <div>
+          <div data-tint="lavender">
             <div class="stat-num">7%</div>
             <div class="stat-label">Correct diagnoses abandoned under incorrect AI + time pressure</div>
           </div>
-          <div>
+          <div data-tint="blue">
             <div class="stat-num">45.5%</div>
             <div class="stat-label">Of errors in AI-assisted knee diagnosis are automation bias</div>
           </div>
@@ -1036,30 +1191,41 @@
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
+  // Inject HEADS watermark into every slide (skip cover + closing)
+  (function injectWatermark() {
+    document.querySelectorAll('.slides > section').forEach(function (s) {
+      if (s.classList.contains('heads-cover') || s.classList.contains('heads-closing')) return;
+      var isDark = s.classList.contains('heads-dark') || s.classList.contains('heads-section');
+      var img = document.createElement('img');
+      img.className = 'heads-watermark';
+      img.src = isDark ? 'assets/logo-heads-light.png' : 'assets/logo-heads.png';
+      img.alt = '';
+      s.appendChild(img);
+    });
+  })();
+
   Reveal.initialize({
     width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
     hash: true, slideNumber: false, controls: true, progress: true, history: true,
     transition: 'slide', transitionSpeed: 'default'
   });
 
-  // Animate bar charts when their slide becomes active
-  Reveal.on('slidechanged', function (e) {
-    if (!e.currentSlide) return;
-    e.currentSlide.querySelectorAll('[data-animate-bars]').forEach(function (chart) {
+  function activateSlide(slide) {
+    if (!slide) return;
+    document.querySelectorAll('.slides .is-active').forEach(function (s) { s.classList.remove('is-active'); });
+    // Force reflow so the entry animations restart
+    void slide.offsetWidth;
+    requestAnimationFrame(function () { slide.classList.add('is-active'); });
+    // re-trigger bar-chart animation
+    slide.querySelectorAll('[data-animate-bars]').forEach(function (chart) {
       chart.classList.remove('animate-in');
-      // Force reflow so the transition restarts on revisit
       void chart.offsetWidth;
       requestAnimationFrame(function () { chart.classList.add('animate-in'); });
     });
-  });
-  // Trigger on initial load too
-  Reveal.on('ready', function () {
-    var slide = Reveal.getCurrentSlide();
-    if (!slide) return;
-    slide.querySelectorAll('[data-animate-bars]').forEach(function (chart) {
-      requestAnimationFrame(function () { chart.classList.add('animate-in'); });
-    });
-  });
+  }
+
+  Reveal.on('slidechanged', function (e) { activateSlide(e.currentSlide); });
+  Reveal.on('ready', function () { activateSlide(Reveal.getCurrentSlide()); });
 </script>
 </body>
 </html>

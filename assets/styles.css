@@ -9,14 +9,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
 
 :root {
+  /* core ink + bg */
   --heads-ink: #3A4652;
-  --heads-lavender: #7C89B8;
-  --heads-bronze: #A57E38;
+  --heads-bg: #FFFFFF;
+  --heads-bg-soft: #E7E6E6;
   --heads-text-muted: #6C7480;
   --heads-line-soft: #D1D5DB;
-  --heads-bg-soft: #E7E6E6;
-  --heads-bg: #FFFFFF;
-  --heads-alert: #C25450;
+
+  /* accents (from theme1.xml accent1..accent6) */
+  --heads-lavender: #7C89B8;     /* accent1 */
+  --heads-bronze:   #A57E38;     /* accent2 */
+  --heads-yellow:   #F6D317;     /* accent4 — institutional yellow */
+  --heads-blue:     #2E78C0;     /* accent6 — mid blue */
+  --heads-blue-deep:#244FA3;     /* accent5 — deep blue */
+  --heads-link:     #0563C1;     /* hyperlink */
+  --heads-alert:    #C25450;     /* warning red (deck-extension) */
+
+  /* tonal background tints */
+  --heads-tint-lavender: rgba(124, 137, 184, 0.12);
+  --heads-tint-blue:     rgba(46, 120, 192, 0.12);
+  --heads-tint-blue-deep:rgba(36, 79, 163, 0.14);
+  --heads-tint-yellow:   rgba(246, 211, 23, 0.18);
+  --heads-tint-bronze:   rgba(165, 126, 56, 0.14);
+  --heads-tint-alert:    rgba(194, 84, 80, 0.14);
+
   --heads-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
