@@ -492,17 +492,7 @@
       </div>
     </section>
 
-    <!-- 14b. Rorschach — inkblot integrated -->
-    <section class="heads-content heads-dark heads-rorschach">
-      <div class="heads-progress-strip"><span class="pill active">eval</span><span class="pill">regulation</span><span class="pill">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
-      <img class="rorschach-art" src="assets/rorschach-light.png" alt="Rorschach inkblot">
-      <div class="body" style="position: relative; z-index: 2; max-width: 56%;">
-        <div style="font-size: 11pt; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px;">A way to see it</div>
-        <h2 style="font-size: 30pt; line-height: 1.18; margin: 0 0 18px 0;">The literature on LLMs in healthcare is a Rorschach.</h2>
-        <p style="font-size: 17pt; line-height: 1.45; margin: 0 0 14px 0; color: rgba(255,255,255,0.88);">Same data, two readings. The answer you find depends on where you decided to look.</p>
-        <p style="font-size: 14pt; color: rgba(255,255,255,0.65); margin: 0; font-style: italic;">Brodeur and Bean–Mahdi are both right. The question is which slice of "performance" you measured.</p>
-      </div>
-    </section>
+    <!-- (Rorschach moved to Part 3 — Rotenstein paper, two readings) -->
 
     <!-- 15. Resolution claim — reformulated -->
     <section class="heads-claim heads-dark">
@@ -757,6 +747,56 @@
             <p style="margin-top: 0.8em; font-size: 14pt; color: var(--heads-text-muted); font-style: italic;">A clinical workflow already running across most of US emergency stroke care.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 30b. Rotenstein — setup the AI scribe case -->
+    <section class="heads-content">
+      <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
+      <h2>Another production case: AI scribes at scale</h2>
+      <div class="title-rule"></div>
+      <div class="body">
+        <p style="font-size: 15pt; margin-bottom: 0.4em;">Rotenstein et al., <em>JAMA</em> 2026 — the largest multisite AI-scribe study to date. <strong>8,581 clinicians · 5 health systems · 3 vendor platforms · 2 years.</strong></p>
+        <div class="heads-stat-row four" style="margin-top: 0.6em;">
+          <div>
+            <div class="stat-num">−13.4 min</div>
+            <div class="stat-label">EHR time per 8h of visits (95% CI 9.1–17.7)</div>
+          </div>
+          <div>
+            <div class="stat-num">−16.0 min</div>
+            <div class="stat-label">Documentation time per 8h (95% CI 13.7–18.3)</div>
+          </div>
+          <div>
+            <div class="stat-num">+0.49</div>
+            <div class="stat-label">Additional visits per week (95% CI 0.17–0.81)</div>
+          </div>
+          <div>
+            <div class="stat-num">±0</div>
+            <div class="stat-label">After-hours EHR ("pajama time") — no significant change</div>
+          </div>
+        </div>
+        <p style="margin-top: 0.8em; font-size: 14pt; color: var(--heads-text-muted); text-align: center;">Authors' framing: <em>"modest decreases… modest increase in weekly visit volume."</em></p>
+      </div>
+    </section>
+
+    <!-- 30c. Rorschach — Topaz vs Meskó, same paper, opposite readings -->
+    <section class="heads-content heads-dark heads-rorschach">
+      <div class="heads-progress-strip"><span class="pill">eval</span><span class="pill">regulation</span><span class="pill active">agents</span><span class="pill">evidence</span><span class="pill">clinic</span></div>
+      <img class="rorschach-art" src="assets/rorschach-light.png" alt="Rorschach inkblot">
+      <div class="body" style="position: relative; z-index: 2; max-width: 60%;">
+        <div style="font-size: 11pt; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">Same paper, two readings</div>
+        <h2 style="font-size: 28pt; line-height: 1.18; margin: 0 0 18px 0;">A Rorschach test for healthcare AI.</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: rgba(194,84,80,0.18); border-left: 3px solid rgba(229,138,135,0.9); padding: 12px 16px; border-radius: 0 3px 3px 0;">
+            <div style="font-size: 11pt; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px;">Max Topaz — critical</div>
+            <p style="margin: 0; font-size: 14pt; line-height: 1.4; color: rgba(255,255,255,0.92);">"Modest 3% reduction. 32% adoption. Pajama time unchanged. The time AI gives back, the system takes away."</p>
+          </div>
+          <div style="background: rgba(124,137,184,0.22); border-left: 3px solid var(--heads-lavender); padding: 12px 16px; border-radius: 0 3px 3px 0;">
+            <div style="font-size: 11pt; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px;">Bertalan Meskó — enthusiastic</div>
+            <p style="margin: 0; font-size: 14pt; line-height: 1.4; color: rgba(255,255,255,0.92);">"13 fewer minutes of EHR time. 16 fewer of documentation. Half an extra visit per week. <em>What are these if not great results?</em>"</p>
+          </div>
+        </div>
+        <p style="margin-top: 14px; font-size: 13pt; color: rgba(255,255,255,0.6); font-style: italic;">Same data. Same authors. Same study. The reading depends on what you brought to it.</p>
       </div>
     </section>
 
