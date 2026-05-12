@@ -1069,7 +1069,7 @@
         <p>A researcher invented a fake disease. Acknowledged "Professor Sideshow Bob". Wrote in the methods <em>"this entire paper is made up"</em>. Posted as a preprint.</p>
         <p><strong>Four major AI chatbots told patients bixonimania was real.</strong></p>
         <p>The peer-reviewed paper that cited the fake preprints as "emerging clinical condition" was only retracted after <em>Nature</em> contacted the journal.</p>
-        <p style="color: var(--heads-text-muted); font-size: 15pt; margin-top: 1em;">Real fabricated references don't come with a confession. They look correct.</p>
+        <p style="color: var(--heads-text-muted); font-size: 15pt; margin-top: 1em; font-style: italic;">"Fabricated references don't look like bixonimania. They're correctly formatted, attributed to real researchers, with plausible dates. They don't come with a Sideshow Bob confession."<br><span style="font-style: normal; font-size: 12pt;">— Max Topaz, LinkedIn 2026</span></p>
       </div>
     </section>
 
@@ -1087,7 +1087,7 @@
       <h2>And the layer above — the systematic review</h2>
       <div class="title-rule"></div>
       <div class="body body--narrow">
-        <p style="font-size: 15pt;">If references are unreliable, can LLMs at least assess methodological quality? Nyrhi et al. tested 4 frontier models against published Cochrane RoB judgements:</p>
+        <p style="font-size: 15pt;">Can the layer above — Risk-of-Bias assessment for systematic reviews — be delegated to LLMs? Nyrhi et al. tested 4 frontier models against published Cochrane judgements:</p>
         <table class="heads-kappa">
           <thead><tr><th>Model</th><th>RoB 1 κ</th><th>RoB 2 κ</th></tr></thead>
           <tbody>
@@ -1097,7 +1097,7 @@
             <tr><td>Gemini Flash 2.0</td><td class="num poor">0.27</td><td class="num poor">0.13</td></tr>
           </tbody>
         </table>
-        <p style="font-size: 13pt; margin-top: 0.6em;">Sensitivity 0.05–0.55. Models <strong>systematically over-flag</strong>. Authors: "None sufficiently reliable for fully autonomous RoB assessment."</p>
+        <p style="font-size: 13pt; margin-top: 0.6em;"><strong>Fair</strong> agreement on RoB 1 (max κ 0.39); essentially <strong>no</strong> agreement on the newer RoB 2 (κ ≤ 0.13). Models over-flag concerns (sensitivity 0.05–0.55). Authors: <em>"not reliable for fully autonomous use"</em>; viable as <em>supervised triage or second assessor</em>.</p>
       </div>
     </section>
 
